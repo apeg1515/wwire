@@ -1,0 +1,10 @@
+version: '3.2'
+services:
+    webflask:
+        tty: true
+        image: flask_app
+        build: .
+        ports:
+          - "5000:5000"
+        volumes:
+          - ./:/code
