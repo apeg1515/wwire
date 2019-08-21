@@ -3,8 +3,23 @@ services:
     webflask:
         tty: true
         image: flask_app
-        build: .
+        container_name: log-service
+        build:
+            context: ./service
+            dockerfile: python.Dockerfile
         ports:
           - "5000:5000"
         volumes:
-          - ./:/code
+          - ./service:/code
+    client:
+        tty: true
+        image: client_app
+        container_name: log-client
+        build:
+            context: ./client
+            dockerfile: Dockerfile
+        ports:
+            - "3000:3000"
+        volumes:
+            - ./client:/usr/app/
+            - /usr/app/node_modules
