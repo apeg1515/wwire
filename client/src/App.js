@@ -80,7 +80,7 @@ function App() {
     } else {
         const filteredRows = getRows(data, filters);
         return (
-            <div style={{ margin: 'auto', overFlow: 'scroll', overFlow: 'auto', maxWidth: 1000, paddingTop: 25 }}>
+            <div style={{ margin: 'auto', overFlow: 'auto', maxWidth: 1000, paddingTop: 25 }}>
                 <ReactDataGrid
                     columns={columnsIdentifiers}
                     rowGetter={i => filteredRows[i]}
